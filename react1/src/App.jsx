@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    const [username,setusername]=useState("")
+    const [check,setcheck]=useState(false)
+    const submithandler=(e)=>{
+        console.log(e)
+        console.log(username,check)
+    }
+    return (
+        <div>
+            <form onChange={submithandler}>
+            <h1>Hello {username}</h1>
+            <input type="text" value={username} onChange={(e)=>{setusername(e.target.value)}}/>
+            <br></br>
+            <input type="checkbox" value={check} /> I accept the terms and conditions
+            <br></br>
+            <button>Submit</button>
+            </form>
+          
+        </div>
+    )
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;

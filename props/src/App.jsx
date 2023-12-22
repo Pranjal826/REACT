@@ -1,13 +1,16 @@
 import Student from "./student"
-const Showconsole=(props)=>{
-  console.log(props)
-}
-const App=()=>{
+
+const name="Pranjal"
+const App=(message)=>{
+  const clickHandler=()=>{
+    alert(`Button Clicked" ${name}`)
+    console.log(name)
+  }
   return(
     <>
-  <Student name="Pranjal" age={20}  isStudent={true} course="CSBS"/>
-
+    <Student button="Click Me" clickHandler={clickHandler}/>
     </>
+
   )
 }
-export default App;
+export default App; 

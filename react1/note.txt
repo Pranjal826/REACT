@@ -1,0 +1,5 @@
+export,import  method are of two types
+1. Using default 
+export default a; import anyname from 'pathname'
+2. Using const
+export const a; import {a} from 'pathname'
