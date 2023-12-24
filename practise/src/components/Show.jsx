@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../utils/Context";
 
-const Show = (props) => {
-    const { users, setusers } = props;
+const Show = () => {
+    const [users, setusers] = useContext(UserContext);
     const DeleteHandler = (index) => {
         const copyusers = [...users];
         copyusers.splice(index, 1);
@@ -19,15 +20,16 @@ const Show = (props) => {
 
     return (
         <>
-            <ol className="flex justify-start flex-col mt-5 w-1/2 m-auto container">
-                <h1 className="text-2xl mb-4">Registered Users</h1>
+            <ol>
+                <h1>Registered Users</h1>
 
                 {users.length > 0
                     ? users
                           .map((user, index) => {
                               return (
                                   <li
-                                      key={index} >
+                                      key={index}
+                                  >
                                       <Link
                                           className="hover:text-blue-400"
                                           to={`/show/details/${user.username}`}
@@ -37,7 +39,13 @@ const Show = (props) => {
                                       </Link>
 
                                       <p>
-                                          <span className="mr-6">✏️</span>
+                                          <Link
+                                              to={`/show/edit/${user.username}`}
+                                              className="mr-6"
+                                          >
+                                              ✏️
+                                          </Link>
+
                                           <span
                                               onClick={() =>
                                                   DeleteHandler(index)
@@ -52,8 +60,8 @@ const Show = (props) => {
                           .reverse()
                     : "Loading..."}
             </ol>
-            <hr className="w-[80%] m-auto my-5 " />
-            <div className="w-[80%]">
+            <hr />
+            <div>
                 <Outlet />
             </div>
         </>
