@@ -32,7 +32,7 @@ const Show = () => {
                                   >
                                       <Link
                                           className="hover:text-blue-400"
-                                          to={`/show/details/${user.username}`}
+                                          to={`/show/${user.username}`}
                                           style={mycss}
                                       >
                                           {user.username}

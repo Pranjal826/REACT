@@ -3,16 +3,16 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const Details = () => {
     const navigate = useNavigate();
-    const { title} = useParams();
+    const { dt} = useParams();
 
     const BackHandler = () => {
-        navigate(-1);
+        navigate("/show");
     };
 
     return (
         <div>
-            <h1>👋 {title}</h1>
-            <button onClick={BackHandler}>Back</button>
+            <h1>👋 {dt}</h1>
+<button onClick={BackHandler}>Back</button>            
         </div>
     );
 };
