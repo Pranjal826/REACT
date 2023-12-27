@@ -5,11 +5,13 @@ const Products = () => {
 
     const getproducts = async () => {
         try {
-            const { data } = await axios.get(
-                "https://fakestoreapi.com/products"
-            );
-            setproducts(data);
-            console.log(data);
+            const response = await axios.get("https://fakestoreapi.com/products");
+console.log(response); // Log the entire response object
+const { data } = response;
+console.log(data); // Log the 'data' property
+// Access title inside data
+setproducts(data)
+            
         } catch (error) {
             console.log(error);
         }

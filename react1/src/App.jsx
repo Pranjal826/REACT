@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const App = () => {
     const [username,setusername]=useState("")
-    const [check,setcheck]=useState(false)
     const submithandler=(e)=>{
         console.log(e)
         console.log(username,check)
